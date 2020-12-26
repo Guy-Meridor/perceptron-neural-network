@@ -17,7 +17,7 @@ def random_binary_rep():
 
 
 def get_target(binary_rep):
-    return 1 if binary_rep.count(1) > NUMBER_LENGTH / 2 else -1
+    return 1 if np.count_nonzero(binary_rep == 1) > NUMBER_LENGTH / 2 else -1
 
 
 def create_training_data(SIZE):
