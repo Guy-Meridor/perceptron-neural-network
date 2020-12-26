@@ -1,4 +1,3 @@
-import random as rnd
 import numpy as np
 from Perceptron.Perceptron import Perceptron
 
@@ -7,7 +6,7 @@ TESTING_DATA_SIZE = 100
 NUMBER_LENGTH = 21
 LEARNING_RATE = 0.1
 ITERATIONS = 15
-BIAS = False
+BIAS = True
 
 
 def random_binary_rep():
@@ -17,13 +16,8 @@ def random_binary_rep():
         return np.array([np.random.choice([-1, 1]) for i in range(NUMBER_LENGTH)])
 
 
-
 def get_target(binary_rep):
-    if BIAS:
-        return 1 if sum(binary_rep) > NUMBER_LENGTH / 2 else -1
-    else:
-        return 1 if sum(binary_rep) >= 0 else -1
-
+    return 1 if binary_rep.count(1) > NUMBER_LENGTH / 2 else -1
 
 
 def create_training_data(SIZE):
